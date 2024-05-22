@@ -1,0 +1,1093 @@
+{
+	"info": {
+		"_postman_id": "5ce05af5-8ea7-43dc-8e94-89e03b997175",
+		"name": "Push notifications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18673821"
+	},
+	"item": [
+		{
+			"name": "Send notification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a test tag notification #3\",\n    \"tag\": \"test-tag\",\n    \"renotify\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/send",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"send"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Simple notification",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a notification body\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 21:42:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "886741ca6d1d8bc1-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3eb-ryd7CHOwJVwcWrabPjyFUUGOs68\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "3360a8fd-7981-4901"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a notification body\"\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with icon",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a notification with icon\",\n    \"icon\": \"assets/icons/icon-512x512.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 21:43:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "886743f96b418bc1-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"417-gGVjZX4hF0Xq3cGz+29CN9/hbQ4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "cd7d820f-981e-4a90"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a notification with icon\",\n            \"icon\": \"assets/icons/icon-512x512.png\"\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with icon and image",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a notification with icon and image\",\n    \"icon\": \"assets/icons/icon-512x512.png\",\n    \"image\": \"https://www.owu.uy/svg/logo-carpincho.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 21:47:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "886748d379188bc1-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"610-V3vvkDOiR973skiObLdbVqWWxQg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "d8deeb37-ebee-42a5"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a notification with icon and image\",\n            \"icon\": \"assets/icons/icon-512x512.png\",\n            \"image\": \"https://www.owu.uy/svg/logo-carpincho.png\"\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with icon and image",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a notification with icon and image\",\n    \"icon\": \"assets/icons/icon-512x512.png\",\n    \"image\": \"https://www.owu.uy/svg/logo-carpincho.png\",\n    \"tag\": \"carpincho\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 May 2024 21:51:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "88674ecddf9f8bc1-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"622-PFrHEAnsY/bb3rZTF6JJDSFIhwc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "033dcba4-c370-41c5"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a notification with icon and image\",\n            \"icon\": \"assets/icons/icon-512x512.png\",\n            \"image\": \"https://www.owu.uy/svg/logo-carpincho.png\",\n            \"tag\": \"carpincho\"\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with link (open window)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"Click Me to join OWU Slack!\",\n    \"data\": {\n      \"onActionClick\": {\n        \"default\": {\"operation\": \"openWindow\", \"url\": \"https://join.slack.com/t/owu/shared_invite/zt-24j54iwcm-Zego9R2e3wZkUlgwP1EqiQ\"}\n      }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:17:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f26322b661fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7f8-Amh4FqX9261xRNy3dHYcMSZypNI\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "01e7e1a8-25ef-41c0"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"Click Me to join OWU Slack!\",\n            \"data\": {\n                \"onActionClick\": {\n                    \"default\": {\n                        \"operation\": \"openWindow\",\n                        \"url\": \"https://join.slack.com/t/owu/shared_invite/zt-24j54iwcm-Zego9R2e3wZkUlgwP1EqiQ\"\n                    }\n                }\n            }\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with link (focusLastFocusedOrOpen)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"Click Me to reopen demo site!\",\n    \"data\": {\n      \"onActionClick\": {\n        \"default\": {\"operation\": \"focusLastFocusedOrOpen\"}\n      }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:20:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f29c0d8b11fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7af-AsWL6j21FevfAccPFhFO3S5GqDg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "41e9330a-6a14-444a"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"Click Me to reopen demo site!\",\n            \"data\": {\n                \"onActionClick\": {\n                    \"default\": {\n                        \"operation\": \"focusLastFocusedOrOpen\"\n                    }\n                }\n            }\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with two actions",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"Which AI do you want to use?\",\n    \"actions\": [\n        { \"action\": \"chatgpt\", \"title\": \"ChatGPT\" },\n        { \"action\": \"gemini\", \"title\": \"Gemini\" }\n    ],\n    \"data\": {\n      \"onActionClick\": {\n        \"chatgpt\": {\"operation\": \"openWindow\", \"url\": \"https://chat.openai.com\" },\n        \"gemini\": {\"operation\": \"openWindow\", \"url\": \"https://gemini.google.com\" }\n      }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:40:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f47f229a01fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"860-iMy7rtAV7ynwW9D86kJ5fjNA7qc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "1cc92a2b-37c3-4d70"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"Which AI do you want to use?\",\n            \"actions\": [\n                {\n                    \"action\": \"chatgpt\",\n                    \"title\": \"ChatGPT\"\n                },\n                {\n                    \"action\": \"gemini\",\n                    \"title\": \"Gemini\"\n                }\n            ],\n            \"data\": {\n                \"onActionClick\": {\n                    \"chatgpt\": {\n                        \"operation\": \"openWindow\",\n                        \"url\": \"https://chat.openai.com\"\n                    },\n                    \"gemini\": {\n                        \"operation\": \"openWindow\",\n                        \"url\": \"https://gemini.google.com\"\n                    }\n                }\n            }\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with link (navigateLastFocusedOrOpen)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"Click Me to reopen demo site!\",\n    \"data\": {\n      \"onActionClick\": {\n        \"default\": {\"operation\": \"navigateLastFocusedOrOpen\", \"url\":\"#internal-link\" }\n      }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:45:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f4eb59bc01fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7c9-KG44ZzK0TeEMsVvB1pE43s0nXGk\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "e9c814a1-7c96-4d09"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"Click Me to reopen demo site!\",\n            \"data\": {\n                \"onActionClick\": {\n                    \"default\": {\n                        \"operation\": \"navigateLastFocusedOrOpen\",\n                        \"url\": \"#internal-link\"\n                    }\n                }\n            }\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with tag",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a test tag notification\",\n    \"tag\": \"test-tag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:47:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f51575fb91fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"776-stYH8SfBeQyd+fVa5/4AzKstiHI\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "a18f836e-5754-49e1"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a test tag notification\",\n            \"tag\": \"test-tag\"\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with same tag #2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a test tag notification #2\",\n    \"tag\": \"test-tag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:47:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f5228eeae1fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"779-XM9IyUIpi4avRKYH/xxuw9LXau8\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "cc64761c-f3cd-4619"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a test tag notification #2\",\n            \"tag\": \"test-tag\"\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Notification with same tag #3 (renotify)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello Angular MVD!\",\n    \"body\": \"This is a test tag notification #3\",\n    \"tag\": \"test-tag\",\n    \"renotify\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/send",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 22 May 2024 19:48:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "887f53156d351fe9-EZE"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"789-uTl6ZfLUkcfLPQa56cBfl9lTbis\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "41fe340c-6213-428d"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"notificationPayload\": {\n        \"notification\": {\n            \"title\": \"Hello Angular MVD!\",\n            \"body\": \"This is a test tag notification #3\",\n            \"tag\": \"test-tag\",\n            \"renotify\": true\n        }\n    },\n    \"logs\": [\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 2,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"INqZhAE95ggorbsAtBD1Zg\",\n                        \"p256dh\": \"BAkpNmlMmkYqAkiQL9awQWIa3UqbDaMDJ01mZDLBHviv68loNBtcdL02e-KV_xj-ie89aJCqtC5XhUIMDzEw3Tw\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eOwqSmvjKCE:APA91bHTD7KDjvI9UOLZKUzkWyMW3fioIUFT4CSIATIiyD2uxzzcoJQxhjDB8Bj8I-gwNdpXriTMzUSGzy2mV-fEGHCGwgtbvOXwNOUjD-BeO6aPRWyHy7XEHalZ4cDsFwzYKchzYBRm\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 3,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"JNEMQikuzURJxoC1O10w5w\",\n                        \"p256dh\": \"BLcKPiDDHeN9zo0V1dOGWrtlVwWLcFTzg_kLmQ5zDoy77JXOSkrYZ9y_ZTqTa4781IwdK3aN-ntOz505_nDinNs\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eAxEX1BjSws:APA91bFEOZszf0Amn2Rsdbx9KLZs4SktC85Jv5QFMHGWKINO4TLhCiHZqBcnGLPwgt6HyPgN7rTWv7ZdW7gLXj3c09dMG4HJuCy4P2mJja-WPnvmVPF08eMV6UnFUbmR3x7u_wUCokeH\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 4,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"MOJsN9IH2LgmJ-YX7WlXzw\",\n                        \"p256dh\": \"BNqgDq_RxGNdxdicJKW_g-Cztfxcx05yzQeF72DdnoKfmwjKybft3g2vcCmVBTk3_f6qVY9cNjqI_cwL6GsHB5s\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/eu9QXpad23s:APA91bG_uAg23UPuPi8D14JV7IyZ35x73NHOgIF3wnv_RNAdA7OILSSlJI58xY18F_v5Yziy_Xd8LU3ifpP7OkRSsGLTpNQxmz5ogE_ue62JgTn5m2CBOtov72rfQmbbL_Hv72he01LU\",\n                    \"expirationTime\": null\n                }\n            }\n        },\n        {\n            \"message\": \"Notification sent successfully.\",\n            \"subscription\": {\n                \"id\": 5,\n                \"data\": {\n                    \"keys\": {\n                        \"auth\": \"akWq4Ac9two7ZEvan8HSwg\",\n                        \"p256dh\": \"BKgH0lpc219QUCsaT_ikytQ46VLeafYc4l3v0VdP32PAuxOtmgNTtgazvA9V09LqzVOd9gMcTxhktBdWU26K8t0\"\n                    },\n                    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/e15nd4a8Mbc:APA91bFZ2SqbQlUwR1W-Y7_yO-MpvnJygLQC51EVWZBm5rzVmqGuo5oaUzuWWGhU2kRdKYMazGxCMBs6uGX1bjvd5_Kaczu7P9jLj90FojOBatTRFarwHmFgA1hx7Nt6aCiPTr8pjSfh\",\n                    \"expirationTime\": null\n                }\n            }\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://ng-push-notifications.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
