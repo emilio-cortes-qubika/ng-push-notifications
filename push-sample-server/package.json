@@ -1,0 +1,17 @@
+{
+  "name": "push-sample-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "pg-connection-string": "^2.6.4",
+    "web-push": "^3.6.7"
+  },
+  "scripts": {
+    "start": "node index.mjs --env-file=.env"
+  }
+}
