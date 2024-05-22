@@ -4,7 +4,7 @@ import { environment } from '../environment';
 import { SubscriptionService } from './services/subscription.service';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { reduce, scan } from 'rxjs';
+import { scan } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,10 @@ import { reduce, scan } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
+  // Get the current subscription
   subscription$ = this.swPush.subscription;
+
+  // Messages and notification clicks
   messages$ = this.swPush.messages.pipe(scan((acc, value) => [...acc, value], [] as object[]));
   notificationClicks$ = this.swPush.notificationClicks.pipe(scan((acc, value) => [...acc, value], [] as object[]));
 
@@ -37,7 +40,7 @@ export class AppComponent implements OnInit{
       next: () => console.log('Subscription added'),
       error: err => {
         console.error('Could not add subscription', err);
-        this.swPush.unsubscribe();
+        this.swPush.unsubscribe(); // Unsubscribe if something fail
       }
     });
   }

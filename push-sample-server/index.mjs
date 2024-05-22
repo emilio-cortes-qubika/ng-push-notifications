@@ -7,16 +7,13 @@ import webPush from 'web-push';
 import { deleteSubscription, fetchSubscriptions, initDb, insertSubscription } from './db.mjs';
 const { setVapidDetails, sendNotification } = webPush;
 
+// read dotenv file
 configDotenv();
 
+// Initialize the database
 initDb();
 
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.use(corsMiddleware());
-
-// VAPID keys should be generated
+// Initialize the web-push library with our VAPID keys
 const vapidKeys = {
   publicKey: process.env.PUBLIC_VAPID_KEY,
   privateKey: process.env.PRIVATE_VAPID_KEY,
@@ -28,9 +25,14 @@ setVapidDetails(
   vapidKeys.privateKey
 );
 
-app.use(json()); // for parsing application/json
 
+// Initialize the express app
+const app = express();
+const port = process.env.PORT || 3000;
+app.use(corsMiddleware());
+app.use(json());
 
+// Subscription endpoint
 app.post('/subscriptions', async (req, res) => {
   const subscription = req.body;
 
@@ -39,8 +41,7 @@ app.post('/subscriptions', async (req, res) => {
   res.status(201).send({ success: true });
 });
 
-
-
+// Send notification endpoint
 app.post('/send', authenticateAdmin, async (req, res) => {
   const notificationPayload = {
     notification: req.body,
@@ -73,6 +74,7 @@ app.post('/send', authenticateAdmin, async (req, res) => {
     });
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
