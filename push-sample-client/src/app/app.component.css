@@ -4,3 +4,13 @@ pre { overflow-x: scroll; background-color: black; color: white; padding: 1em; b
 .logs { display: flex; flex-direction: row; gap: 16px; flex: 1; }
 .logs > div { width: 50%; height: 100%; display: flex; flex-direction: column; }
 .logs > div pre { flex: 1; margin: 0;}
+
+@media(min-width:600px) {
+  .logs { flex-direction: row; }
+  .logs > div { width: 50%; }
+}
+
+@media(max-width:600px) {
+  .logs { flex-direction: column; }
+  .logs > div { width: 100%; }
+}
